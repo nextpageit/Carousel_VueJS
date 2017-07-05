@@ -1,0 +1,267 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vue Carousel 3D - 3D Carousel for Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue Carousel 3D - Beautiful, flexible and touch supported 3D Carousel for Vue.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Vue Carousel 3D">
+    <meta property="og:description" content="Vue Carousel 3D - Beautiful, flexible and touch supported 3D Carousel for Vue.js">
+    <meta property="og:image" content="https:///images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vue Carousel 3D">
+    <meta name="twitter:description" content="Vue Carousel 3D - Beautiful, flexible and touch supported 3D Carousel for Vue.js">
+    <meta name="twitter:image" content="https:///images/logo.png">
+
+    <meta name="google-site-verification" content="j7k2Vin9D3fJKlxZqkcEQK-o4eH3yJbJHwi3u2-KHwQ" />
+
+
+    <!-- main page styles -->
+    <link href="../Carousel/index.css" rel="stylesheet" />
+  
+
+
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+   
+    <script src="../Carousel/vue.js"></script>
+    <script src="../Carousel/vue-carousel-3d.min.js"></script>
+     
+
+    <script>window.PAGE_TYPE = ""</script>
+</head>
+<body class="">
+    <div id="mobile-bar" class="top">
+        <a class="menu-button"></a>
+        <a class="logo" href="/vue-carousel-3d/"></a>
+    </div>
+    <div id="header">
+        <a id="logo">
+
+
+            <img src="../Carousel/2.png" />
+
+
+        </a>
+        <ul id="nav">
+
+            <li>
+
+                <img src="../Carousel/1.png" />
+            </li>
+
+
+        </ul>
+    </div>
+
+
+    <div class="sidebar">
+        <ul class="main-menu">
+            <li><a href="/vue-carousel-3d/guide" class="nav-link">Guide</a></li>
+            <li><a href="/vue-carousel-3d/api" class="nav-link">API</a></li>
+            <li><a href="/vue-carousel-3d/examples" class="nav-link">Examples</a></li>
+
+        </ul>
+    </div>
+
+    <div id="hero">
+        <div class="inner">
+
+            <h1>
+                Most Popular Infographics<br /> <strong>On Maxabout</strong>
+            </h1>
+            <p>
+                <a class="button" href="http://www.maxabout.com" style="background-color:#B63224" target="_blank">   Visit Maxabout.com</a>
+                 
+                    
+                <a class="button white" href="http://contact.maxabout.com/" target="_blank">Contact</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="hero" class="hero-sm">
+        <div class="inner">
+            <div id="index-example"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = [
+        {
+
+            title: 'Slide 1',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+            src:"https://ic.maxabout.us//misc/infographics/car-infographics//tata-hexa-price.jpg/thumb/500" 
+            //src: '/Carousel/3.jpg'
+
+
+        },
+        {
+            title: 'Slide 2',
+            desc: 'Lorem ipsum dolor sit amet ',
+            src:"https://ic.maxabout.us//misc/infographics/car-infographics//jeep-wrangler-unlimited-diesel.jpg/thumb/500"
+            //src: '/Carousel/4.jpg'
+        },
+        {
+            title: 'Slide 3',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
+            src:"https://ic.maxabout.us//misc/infographics//pulsar-ns200-price-list.jpg/thumb/500"
+            //src: '/Carousel/5.jpg'
+        },
+        {
+            title: 'Slide 4',
+            desc: 'Lorem ipsum dolor sit amet,  Enim, maxime.',
+            src:"https://ic.maxabout.us//misc/infographics//KTM-Duke-200-vs-Duke-250-vs-Duke-390-comparison-maxabout-new.jpg/thumb/500"
+            //src: '/Carousel/6.jpg'
+        }
+        //{
+        //    title: 'Slide 5',
+        //    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+        //    src: 'https://placehold.it/360x270'
+        //},
+        //{
+        //    title: 'Slide 6',
+        //    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+        //    src: 'https://placehold.it/360x270'
+        //},
+        //{
+        //    title: 'Slide 7',
+        //    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+        //    src: 'https://placehold.it/360x270'
+        //},
+        //{
+        //    title: 'Slide 8',
+        //    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+        //    src: 'https://placehold.it/360x270'
+        //},
+        //{
+        //    title: 'Slide 9',
+        //    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+        //    src: 'https://placehold.it/360x270'
+        //},
+        //{
+        //    title: 'Slide 10',
+        //    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, maxime.',
+        //    src: 'https://placehold.it/360x270'
+        //}
+    ]
+
+    var slideTpl = '';
+
+    slides.forEach(function (slide, index) {
+        slideTpl += '<slide :index="' + index + '"><img src="' + slide.src + '" /></slide>';
+    });
+
+    new Vue({
+        el: '#index-example',
+        components: {
+            'carousel-3d': Carousel3d.Carousel3d,
+            'slide': Carousel3d.Slide
+        },
+        template: '<carousel-3d :controls-visible="true">' + slideTpl + '</carousel-3d>'
+    });
+    </script>
+
+    <div id="highlights">
+        <div class="inner">
+            <div class="point">
+                <h2>Car</h2>
+                <p>
+                    Maxabout bring detail laoded car
+                    infographics,covering most present
+                    and upcoming cars of India
+                </p>
+            </div>
+
+            <div class="point">
+                <h2>Bikes</h2>
+                <p>
+                    This can help you sort your favourite bike
+                    with all its details on a single platform
+                    Easy to read,easy to compare
+                </p>
+            </div>
+
+            <div class="point">
+                <h2>Mobiles</h2>
+                <p></p>
+                <p>
+                    Mobile phone selection was never so easy
+                    before.Select your favourite phone and
+                    compare with hundred of options
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer" style="background-color:#B63224">
+
+        Copyright &copy; 2017 <a href="http://www.maxabout.com/">Maxabout.com</a>
+    </div>
+    <script>
+    var topScrolled = false
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 165 && !topScrolled) {
+            topScrolled = true
+            document.getElementById('mobile-bar').classList.remove('top')
+        } else if (window.pageYOffset <= 165 && topScrolled) {
+            topScrolled = false
+            document.getElementById('mobile-bar').classList.add('top')
+        }
+    })
+    </script>
+
+
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <!--<script src="/res/common.js"></script>-->
+    <!--<script src="Scripts/common.js"></script>-->
+    <!-- ga -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-4467381-14', 'auto');
+          ga('send', 'pageview');
+    </script>
+
+    <!-- search -->
+    <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <!--<link href="~/Content/search.css" rel="stylesheet" />-->
+
+    <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+            [
+                '#search-query-nav',
+                '#search-query-sidebar'
+            ].forEach(function (selector) {
+                if (!document.querySelector(selector)) return
+                // search index defaults to v2
+                var match = window.location.pathname.match(/^\/(v\d+)/)
+                var version = match ? match[1] : 'v2'
+//                docsearch({
+//                    appId: 'BH4D9OD16A',
+//                    apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
+//                    indexName: 'vuejs',
+//                    inputSelector: selector,
+//                    algoliaOptions: { facetFilters: ["version:" + version] }
+//                })
+            })
+    </script>
+
+    <!-- fastclick -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+    </script>
+</body>
+</html>
